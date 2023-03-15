@@ -15,7 +15,7 @@ public interface StaffDao {
             " FROM staff " +
             "WHERE num=:id")
     @MaxRows(10)
-    @QueryTimeOut(200)
-    @RegisterRowMapper(StaffMapper.class)
-    List<StaffPOJO> getById(@Bind("id") int id);
+    @QueryTimeOut(20)
+    @RegisterRowMapper(StaffMapper.class) // указание мапера, который перехватить ответ от БД и смапит данные в модель
+    List<StaffPOJO> getById(@Bind("id") int id); // название метода, для обращения к нему
 }
